@@ -51,7 +51,6 @@ jobs:
         #  tar -C /opt -xjf /tmp/firefox.tar.bz2 && \
         #  rm /tmp/firefox.tar.bz2 && \
         #  ln -fs /opt/firefox/firefox /usr/bin/firefox
-        apt-get install firefox-esr -y
     - uses: actions/checkout@v4
     - name: Set up JDK 25
       uses: actions/setup-java@v6
