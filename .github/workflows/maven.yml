@@ -33,7 +33,7 @@ jobs:
     - name: Prepare Firefox env
       run: |
         apt-get update --yes
-        apt-get install --yes xvfb libnspr4
+        apt-get install --yes xvfb libnspr4 libnss3
         apt-get install --yes firefox
     - uses: actions/checkout@v4
     - name: Set up JDK 25
