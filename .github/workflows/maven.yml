@@ -63,5 +63,5 @@ jobs:
         maven-version: 3.9.16
     - name: Build with Maven
       run: |
-        sed -i 's/firefox/eletron/' pom.xml
+        sed -i 's/firefox/electron/' pom.xml
         mvn clean verify --file pom.xml
