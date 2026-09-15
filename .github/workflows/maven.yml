@@ -51,8 +51,7 @@ jobs:
           bzip2 \
           # add codecs needed for video playback in firefox
           # https://github.com/cypress-io/cypress-docker-images/issues/150
-          mplayer \
-          \
+          mplayer
         wget --no-verbose -O /tmp/firefox.tar.bz2 https://download-installer.cdn.mozilla.net/pub/firefox/releases/133.0/linux-x86_64/en-US/firefox-133.0.tar.bz2 && \
         tar -C /opt -xjf /tmp/firefox.tar.bz2 && \
         rm /tmp/firefox.tar.bz2 && \
