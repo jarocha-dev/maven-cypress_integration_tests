@@ -30,12 +30,17 @@ jobs:
         apt-get install --yes libaio1t64
         apt-get install --yes libncurses6
         ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
-    - name: Prepare Firefox env
+    - name: Prepare Cypress env
       run: |
         apt-get update --yes
         apt-get install --yes libgtk-3-0t64 libgbm-dev libnotify-dev libnss3 libxss1 libasound2t64 libxtst6 xauth xvfb
-        apt-get install --yes firefox
         apt-get install --yes bc
+    - name: Prepare Firefox env
+      run: |
+        wget --no-verbose -O /tmp/firefox.tar.bz2 https://download-installer.cdn.mozilla.net/pub/firefox/releases/133.0/linux-x86_64/en-US/firefox-133.0.tar.bz2 && \
+        tar -C /opt -xjf /tmp/firefox.tar.bz2 && \
+        rm /tmp/firefox.tar.bz2 && \
+        ln -fs /opt/firefox/firefox /usr/bin/firefox
     - uses: actions/checkout@v4
     - name: Set up JDK 25
       uses: actions/setup-java@v6
