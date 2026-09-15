@@ -47,8 +47,6 @@ jobs:
           xdg-utils \
           wget \
           curl \
-          # chrome dependencies
-          libu2f-udev \
           # firefox dependencies
           bzip2 \
           # add codecs needed for video playback in firefox
