@@ -57,4 +57,6 @@ jobs:
     - name: Build with Maven
       run: |
         # sed -i 's/firefox/electron/' pom.xml
+        echo headless | sudo -S mkdir -p /home/headless/.m2/repository
+        echo headless | sudo -S chown -R headless:headless /home/headless/.m2
         mvn clean verify --file pom.xml
