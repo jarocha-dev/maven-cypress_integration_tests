@@ -19,38 +19,31 @@ jobs:
 
     runs-on: ubuntu-latest
     container:
-      image: ubuntu:24.04
+      image: accetto/ubuntu-vnc-xfce-firefox-g3:24.04
       ports: [ 3306 ]
 
     steps:
     - name: Prepare MySQL env
       run: |
-        apt-get update --yes
-        apt-get install --yes libnuma1
-        apt-get install --yes libaio1t64
-        apt-get install --yes libncurses6
-        ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
+        echo headless | sudo -S apt-get update --yes
+        echo headless | sudo -S apt-get install --yes libnuma1
+        echo headless | sudo -S apt-get install --yes libaio1t64
+        echo headless | sudo -S apt-get install --yes libncurses6
+        echo headless | sudo -S ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
     - name: Prepare Cypress env
       run: |
-        apt-get update --yes
-        apt-get install --yes libgtk-3-0t64 libgbm-dev libnotify-dev libnss3 libxss1 libasound2t64 libxtst6 xauth xvfb
-        apt-get install --yes bc bzip2 mplayer
+        echo headless | sudo -S apt-get update --yes
+        echo headless | sudo -S apt-get install --yes libgtk-3-0t64 libgbm-dev libnotify-dev libnss3 libxss1 libasound2t64 libxtst6 xauth xvfb
+        echo headless | sudo -S apt-get install --yes bc bzip2 mplayer
     - name: Prepare Firefox env
       run: |
-        apt-get update && \
-          apt-get install -y \
-          fonts-liberation \
-          git \
-          libcurl4 \
-          libcurl3-gnutls \
-          libvulkan1 \
-          xdg-utils \
-          wget \
-          curl
-        # wget --no-verbose -O /tmp/firefox.tar.bz2 https://download-installer.cdn.mozilla.net/pub/firefox/releases/133.0/linux-x86_64/en-US/firefox-133.0.tar.bz2 && \
-        #  tar -C /opt -xjf /tmp/firefox.tar.bz2 && \
-        #  rm /tmp/firefox.tar.bz2 && \
-        #  ln -fs /opt/firefox/firefox /usr/bin/firefox
+        mkdir -p /opt
+        echo headless | sudo -S mkdir -p /snap/bin
+        echo headless | sudo -S chown -R headless:headless /opt /snap/bin
+        cd /opt
+        wget -qO- https://github.com/mozilla/geckodriver/releases/download/v0.37.1/geckodriver-v0.37.1-linux64.tar.gz | tar xzf -
+        echo headless | sudo -S ln -fs /opt/geckodriver /snap/bin/geckodriver
+        
     - uses: actions/checkout@v4
     - name: Set up JDK 25
       uses: actions/setup-java@v6
@@ -63,5 +56,5 @@ jobs:
         maven-version: 3.9.16
     - name: Build with Maven
       run: |
-        sed -i 's/firefox/electron/' pom.xml
+        # sed -i 's/firefox/electron/' pom.xml
         mvn clean verify --file pom.xml
