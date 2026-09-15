@@ -274,7 +274,7 @@
 					    <phase>integration-test</phase>
 					
 					    <configuration>
-					        <arguments>cypress run --browser firefox</arguments>
+					        <arguments>cypress run --browser firefox-esr</arguments>
 					        <testFailureIgnore>true</testFailureIgnore>
 					    </configuration>
 					</execution>
