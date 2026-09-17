@@ -54,7 +54,7 @@ jobs:
     - name: Setup Firefox 155
       uses: browser-actions/setup-firefox@v1
       with:
-        firefox-version: 133.0
+        firefox-version: 133.0.3
     - name: Build with Maven
       run: |
         # sed -i 's/firefox/electron/' pom.xml
