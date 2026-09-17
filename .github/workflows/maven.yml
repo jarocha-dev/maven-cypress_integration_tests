@@ -41,7 +41,8 @@ jobs:
           libcurl4 \
           libcurl3-gnutls \
           libvulkan1 \
-          xdg-utils
+          xdg-utils \
+          dbus-glib
     - name: Prepare Firefox env
       run: |
         mkdir -p /opt
