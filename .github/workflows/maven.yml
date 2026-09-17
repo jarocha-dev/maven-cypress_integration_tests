@@ -55,6 +55,9 @@ jobs:
       uses: browser-actions/setup-firefox@v1
       with:
         firefox-version: 153.0.1
+        run: |
+          mkdir /tmp/firefox_tmp
+          TMPDIR=/tmp/firefox_tmp /__t/firefox/153.0.1/x64/firefox --version
     - name: Build with Maven
       run: |
         # sed -i 's/firefox/electron/' pom.xml
