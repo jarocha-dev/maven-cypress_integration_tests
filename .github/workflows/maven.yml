@@ -48,7 +48,7 @@ jobs:
     - name: Build with Maven
       uses: browser-actions/setup-firefox@v1
       with:
-        firefox-version: 133
+        firefox-version: 155.0.1
         run: |
           # sed -i 's/firefox/electron/' pom.xml
           mvn clean verify --file pom.xml
