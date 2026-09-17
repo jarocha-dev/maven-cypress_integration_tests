@@ -21,6 +21,7 @@ jobs:
     container:
       image: ubuntu:24.04
       ports: [ 3306, 8080 ]
+      options: --security-opt="seccomp=unconfined"
 
     steps:
     - name: Prepare MySQL env
