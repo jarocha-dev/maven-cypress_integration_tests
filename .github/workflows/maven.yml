@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ubuntu:24.04
-      ports: [ 3306 ]
+      ports: [ 3306, 8080 ]
 
     steps:
     - name: Prepare MySQL env
