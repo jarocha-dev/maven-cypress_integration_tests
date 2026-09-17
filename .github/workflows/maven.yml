@@ -45,10 +45,11 @@ jobs:
     - uses: stCarolas/setup-maven@v5
       with:
         maven-version: 3.9.16
-    - name: Build with Maven
+    - name: Setup Firefox 155
       uses: browser-actions/setup-firefox@v1
       with:
         firefox-version: 155.0.1
-        run: |
-          # sed -i 's/firefox/electron/' pom.xml
-          mvn clean verify --file pom.xml
+    - name: Build with Maven
+      run: |
+        # sed -i 's/firefox/electron/' pom.xml
+        mvn clean verify --file pom.xml
