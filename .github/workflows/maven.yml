@@ -47,10 +47,10 @@ jobs:
           xdg-utils \
           wget \
           curl
-        wget --no-verbose -O /tmp/firefox.tar.bz2 https://download-installer.cdn.mozilla.net/pub/firefox/releases/133.0/linux-x86_64/en-US/firefox-133.0.tar.bz2 && \
-          tar -C /opt -xjf /tmp/firefox.tar.bz2 && \
-          rm /tmp/firefox.tar.bz2 && \
-          ln -fs /opt/firefox/firefox /usr/bin/firefox
+        wget --no-verbose -O /tmp/firefox.tar.bz2 https://download-installer.cdn.mozilla.net/pub/firefox/releases/133.0/linux-x86_64/en-US/firefox-133.0.tar.bz2
+        tar -C /opt -xjf /tmp/firefox.tar.bz2
+        rm /tmp/firefox.tar.bz2
+        ln -fs /opt/firefox/firefox /usr/bin/firefox
     - uses: actions/checkout@v4
     - name: Set up JDK 25
       uses: actions/setup-java@v6
