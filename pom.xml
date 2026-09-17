@@ -274,6 +274,9 @@
 					    <phase>integration-test</phase>
 					
 					    <configuration>
+							<systemPropertyVariables>
+								<CYPRESS_INTERNAL_BROWSER_CONNECT_TIMEOUT>300000</CYPRESS_INTERNAL_BROWSER_CONNECT_TIMEOUT>
+							</systemPropertyVariables>
 					        <arguments>cypress run --browser firefox</arguments>
 					        <testFailureIgnore>true</testFailureIgnore>
 					    </configuration>
