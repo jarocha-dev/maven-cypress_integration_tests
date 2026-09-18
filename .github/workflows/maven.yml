@@ -52,10 +52,9 @@ jobs:
       uses: cypress-io/github-action@v7
       with:
         runTests: false
-    - name: Build with Maven
-      run: |
-          java --version
-          mvn --version
-          echo headless | sudo -S mkdir -p /home/headless/.m2/repository
-          echo headless | sudo -S chown -R headless:headless /home/headless/.m2
-          mvn clean verify
+        run: |
+            java --version
+            mvn --version
+            echo headless | sudo -S mkdir -p /home/headless/.m2/repository
+            echo headless | sudo -S chown -R headless:headless /home/headless/.m2
+            mvn clean verify
