@@ -21,7 +21,7 @@ jobs:
     container:
       image: cypress/browsers:22.15.0
       ports: [ 3306 ]
-      options: --security-opt="seccomp=unconfined" --user 1001
+      options: --security-opt="seccomp=unconfined"
 
     steps:
     - name: Prepare MySQL env
