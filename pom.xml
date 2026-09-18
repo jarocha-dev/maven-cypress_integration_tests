@@ -274,9 +274,9 @@
 					    <phase>integration-test</phase>
 					
 					    <configuration>
-							<systemPropertyVariables>
+							<environmentVariables>
 								<DEBUG>cypress:config:browser</DEBUG>
-							</systemPropertyVariables>
+							</environmentVariables>
 					        <arguments>cypress run --browser firefox</arguments>
 					        <testFailureIgnore>true</testFailureIgnore>
 					    </configuration>
