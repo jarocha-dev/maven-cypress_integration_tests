@@ -59,6 +59,8 @@ jobs:
     - name: Build with Maven
       run: |
         # sed -i 's/firefox/electron/' pom.xml
+        set -eux
+        touch /github/home/.Xauthority
         # Start Xvfb
         Xvfb :99 -screen 0 1920x1080x24 &
         
@@ -69,11 +71,11 @@ jobs:
         export DISPLAY=:99
         
         # Generate a .Xauthority file
-        touch /root/.Xauthority
+        touch /github/home/.Xauthority
         xauth generate $DISPLAY . trusted
         xauth add $DISPLAY . $(xxd -l 16 -p /dev/urandom)
         
         # Set XAUTHORITY environment variable
-        export XAUTHORITY=/root/.Xauthority
+        export XAUTHORITY=/github/home/.Xauthority
 
         mvn clean verify --file pom.xml
