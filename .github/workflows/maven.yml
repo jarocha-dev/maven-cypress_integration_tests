@@ -48,10 +48,9 @@ jobs:
     - uses: stCarolas/setup-maven@v5
       with:
         maven-version: 3.9.16
-    - name: Cypress install
-      uses: cypress-io/github-action@v7
+    - name: Checkout
+      uses: actions/checkout@v7
       with:
-        runTests: false
         working-directory: nodejs
     - name: Build with Maven
       run: |
