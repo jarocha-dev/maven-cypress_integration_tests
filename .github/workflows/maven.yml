@@ -49,10 +49,6 @@ jobs:
     - uses: stCarolas/setup-maven@v5
       with:
         maven-version: 3.9.16
-    - uses: cypress-io/github-action@v7
-      with:
-        browser: firefox
-        working-directory: nodejs
     - name: Build with Maven
       run: |
           java --version
