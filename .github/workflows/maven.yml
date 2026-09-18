@@ -21,13 +21,12 @@ jobs:
     container:
       image: cypress/browsers:22.15.0
       ports: [ 3306 ]
-      options: --security-opt="seccomp=unconfined"
 
     steps:
     - name: Prepare MySQL env
       run: |
         apt-get update --yes
-        apt-get install --yes libnuma1 sudo tree
+        apt-get install --yes libnuma1
         apt-get install --yes libaio*
         apt-get install --yes libncurses6
         ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
@@ -80,4 +79,4 @@ jobs:
         # export XAUTHORITY=/github/home/.Xauthority
 
         # su root
-        sudo -u 1001 bash -c "mvn clean verify --file pom.xml"
+        mvn clean verify --file pom.xml
