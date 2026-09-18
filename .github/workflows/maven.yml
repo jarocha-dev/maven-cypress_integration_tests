@@ -28,9 +28,9 @@ jobs:
       run: |
         apt-get update --yes
         apt-get install --yes libnuma1
-        apt-get install --yes libaio1t64
+        # apt-get install --yes libaio1t64
         apt-get install --yes libncurses6
-        ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
+        # ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
     - name: Prepare Cypress env
       run: |
         apt-get update --yes
