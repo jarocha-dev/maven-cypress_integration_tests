@@ -295,6 +295,7 @@
 							<environmentVariables>
 								<DEBUG>cypress:*</DEBUG>
 								<TMPDIR>${project.build.directory}/firefox_tmp</TMPDIR>
+								<CYPRESS_INTERNAL_BROWSER_CONNECT_TIMEOUT>180000</CYPRESS_INTERNAL_BROWSER_CONNECT_TIMEOUT>
 							</environmentVariables>
 					        <arguments>cypress run --browser firefox</arguments>
 					        <testFailureIgnore>true</testFailureIgnore>
