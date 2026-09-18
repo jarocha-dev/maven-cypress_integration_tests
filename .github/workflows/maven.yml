@@ -80,4 +80,4 @@ jobs:
         # export XAUTHORITY=/github/home/.Xauthority
 
         # su root
-        sudo -u #1001 bash -c "mvn clean verify --file pom.xml"
+        sudo -u 1001 bash -c "mvn clean verify --file pom.xml"
