@@ -27,10 +27,11 @@ jobs:
     - name: Prepare MySQL env
       run: |
         apt-get update --yes
-        apt-get install --yes libnuma1 sudo
+        apt-get install --yes libnuma1 sudo tree
         # apt-get install --yes libaio1t64
         apt-get install --yes libncurses6
-        ls -l  /lib/libaio.so*
+        tree /usr/lib
+        tree  /lib
         ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
     - name: Prepare Cypress env
       run: |
