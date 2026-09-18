@@ -51,9 +51,7 @@ jobs:
     - name: Cypress install
       uses: cypress-io/github-action@v7
       with:
-        # Disable running of tests within install job
         runTests: false
-        build: npm run build
     - name: Build with Maven
       run: |
           java --version
