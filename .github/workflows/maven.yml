@@ -21,6 +21,7 @@ jobs:
     container:
       image: accetto/ubuntu-vnc-xfce-firefox-g3:24.04
       ports: [ 3306 ]
+      options: --user 1001
 
     steps:
     - name: Prepare MySQL env
@@ -48,10 +49,6 @@ jobs:
     - uses: stCarolas/setup-maven@v5
       with:
         maven-version: 3.9.16
-    - name: Checkout
-      uses: actions/setup-node@v7
-      with:
-        working-directory: nodejs
     - name: Build with Maven
       run: |
           java --version
