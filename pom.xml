@@ -276,6 +276,7 @@
 					    <configuration>
 							<environmentVariables>
 								<DEBUG>cypress:config:browser</DEBUG>
+								<DISPLAY>:0</DISPLAY>
 							</environmentVariables>
 					        <arguments>cypress run --browser firefox</arguments>
 					        <testFailureIgnore>true</testFailureIgnore>
