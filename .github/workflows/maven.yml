@@ -78,4 +78,4 @@ jobs:
         # Set XAUTHORITY environment variable
         export XAUTHORITY=/github/home/.Xauthority
 
-        su -u #1001 bash -c 'mvn clean verify --file pom.xml'
+        su #1001 bash -c 'mvn clean verify --file pom.xml'
