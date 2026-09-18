@@ -19,9 +19,9 @@ jobs:
 
     runs-on: ubuntu-latest
     container:
-      image: ubuntu:24.04
+      image: cypress/browsers:22.15.0
       ports: [ 3306 ]
-      options: --security-opt="seccomp=unconfined"
+      options: --security-opt="seccomp=unconfined" --user 1001
 
     steps:
     - name: Prepare MySQL env
@@ -58,25 +58,26 @@ jobs:
         firefox-version: 153.0.1
     - name: Build with Maven
       run: |
-        sed -i 's/firefox/electron/' pom.xml
         set -eux
-        touch /github/home/.Xauthority
+        
+        # sed -i 's/firefox/electron/' pom.xml
+        # touch /github/home/.Xauthority
         # Start Xvfb
-        Xvfb :99 -screen 0 1920x1080x24 &
+        # Xvfb :99 -screen 0 1920x1080x24 &
         
         # Wait for Xvfb to start
-        sleep 2
+        # sleep 2
         
         # Set the DISPLAY environment variable (redundant but just to make sure)
-        export DISPLAY=:99
+        # export DISPLAY=:99
         
         # Generate a .Xauthority file
-        touch /github/home/.Xauthority
-        xauth generate $DISPLAY . trusted
-        xauth add $DISPLAY . $(xxd -l 16 -p /dev/urandom)
+        # touch /github/home/.Xauthority
+        # xauth generate $DISPLAY . trusted
+        # xauth add $DISPLAY . $(xxd -l 16 -p /dev/urandom)
         
         # Set XAUTHORITY environment variable
-        export XAUTHORITY=/github/home/.Xauthority
+        # export XAUTHORITY=/github/home/.Xauthority
 
-        su root
+        # su root
         mvn clean verify --file pom.xml
